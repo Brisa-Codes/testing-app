@@ -1,0 +1,30 @@
+.container {
+  margin: 40px 0;
+}
+
+.header-image {
+    margin-top: 20px;
+}
+
+.header-image img{
+    width: 100%;
+    background-size: cover;
+}
+
+.form-wrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn-primary {
+    margin-top: 40px;
+    width: 40%;
+    background-color: #1f4e79;
+}
+
+.title-text {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
