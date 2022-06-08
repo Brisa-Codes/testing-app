@@ -1,4 +1,3 @@
-// require("dotenv").config();
 const express = require('express');
 // const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -42,12 +41,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', register);
 
 // Server connection
-const PORT = process.env.PORT || 4000;
+//const PORT = process.env.PORT || 4000;
 
-if(!module.parent) {
-    app.listen(PORT, () => {
-        logger.info(`Server started on port ${PORT}`);
-    });
-};
+
+app.listen(3000, () => {
+    logger.info('Server started on port 3000');
+});
 
 module.exports = app;
