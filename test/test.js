@@ -1,34 +1,40 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-chai.use(chaiHttp);
+const app = require('../app');
 const expect = chai.expect;
 const should = chai.should();
-const server = require('../app');
-const logger = require('../logger/logger');
 
-describe('/register', () => {
-    it('should return the register req', (done) => {
-        chai.request('http://localhost:4040')
+chai.use(chaiHttp);
+
+describe('/GET Testing APIs', () => {
+    it('should GET register', () => {
+        chai.request(app)
         .get('/register')
         .end((err, res) => {
-            expect(res.status).to.be(200);
-            expect(err).to.be.null;
-            res.body.should.have.property('name');
-            expect(attributes.name).to.eql('string');
-            logger.info('Page rendered successfully');
-            done();
+            res.should.have.status(200);
+            res.body.should.be.a('object');
         });
-        });
+    });
 
-        it('should run api request', (done) => {
-        chai.request('http://localhost:4040')
-            .get('/register')
-            .end((err, res) => {
-                //res.should.have.status(200);
-                expect(res.status).to.be(404);
-                expect(err).to.be.null;
-                logger.info('test failed');
-                done();
-            })
+    // post test
+    it('should POST register', () => {
+        chai.request(app)
+        .post('/register')
+        .send({
+            sirname: 'sirname',
+            givenname: 'givenname',
+            nin: 'nin',
+            dob: 'dob',
+            occupation: 'occupation',
+            work: 'work',
+            gender: 'gender',
+            loan: 100000,
+            security: 'security',
+            fallback: 'fallback'
+        })
+        .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
         });
+    });
 });
