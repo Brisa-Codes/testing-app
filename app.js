@@ -1,8 +1,10 @@
+// require("dotenv").config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 const config = require('./config/database');
+const logger = require('./logger/logger');
 
 // connecting the app using express
 const app = express();
@@ -11,12 +13,13 @@ const app = express();
 const Register = require('./models/registerModel');
 const register = require('./routes/register');
 
+
 // Database connection
 const db = mongoose.connection;
 mongoose.connect(config.database);
 
 db.once('open', () => {
-    console.log('Connected to MongoDB');
+    logger.info('Connected to MongoDB');
 });
 
 db.on('error', (err) => {
@@ -39,7 +42,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', register);
 
 // Server connection
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
-});
+const PORT = process.env.PORT || 4000;
+
+if(!module.parent) {
+    app.listen(PORT, () => {
+        logger.info(`Server started on port ${PORT}`);
+    });
+};
+
+module.exports = app;
