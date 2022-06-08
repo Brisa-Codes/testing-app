@@ -8,24 +8,25 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test": "mocha"
+    "test": "mocha --exit"
   },
   "author": "Brisa-Codes",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
-    "chai": "^4.3.6",
-    "chai-http": "^4.3.0",
     "dotenv": "^16.0.1",
-    "eslint": "^8.17.0",
     "express": "^4.17.3",
     "express-validator": "^5.3.0",
-    "mocha": "^10.0.0",
     "mongoose": "^6.2.11",
     "nodemon": "^2.0.15",
     "path": "^0.12.7",
-    "pino": "^8.0.0",
-    "pino-pretty": "^8.0.0",
     "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.0.0",
+    "pino": "^8.0.0",
+    "pino-pretty": "^8.0.0"
   }
 }
