@@ -1,9 +1,9 @@
 // require("dotenv").config();
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-const config = require('./config/database');
+// const config = require('./config/database');
 const logger = require('./logger/logger');
 
 // connecting the app using express
@@ -15,16 +15,16 @@ const register = require('./routes/register');
 
 
 // Database connection
-const db = mongoose.connection;
-mongoose.connect(config.database);
+// const db = mongoose.connection;
+// mongoose.connect(config.database);
 
-db.once('open', () => {
-    logger.info('Connected to MongoDB');
-});
+// db.once('open', () => {
+//     logger.info('Connected to MongoDB');
+// });
 
-db.on('error', (err) => {
-    console.error(err);
-});
+// db.on('error', (err) => {
+//     console.error(err);
+// });
 
 // View engine setup to render pug files
 app.engine('pug', require('pug').__express);
