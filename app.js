@@ -12,7 +12,6 @@ const app = express();
 const Register = require('./models/registerModel');
 const register = require('./routes/register');
 
-
 // Database connection
 // const db = mongoose.connection;
 // mongoose.connect(config.database);
@@ -42,7 +41,6 @@ app.use('/', register);
 
 // Server connection
 //const PORT = process.env.PORT || 4000;
-
 
 app.listen(3000, () => {
     logger.info('Server started on port 3000');
