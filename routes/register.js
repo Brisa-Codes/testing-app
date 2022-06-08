@@ -6,7 +6,7 @@ const Register = require('../models/registerModel');
 
 router.use(expressValidator());
 
-router.get('/', (req, res) => {
+router.get('/register', (req, res) => {
     res.render('index');
 });
 
@@ -45,7 +45,7 @@ router.post('/register', (req, res) => {
                 console.error(err);
                 return;
             } else {
-                res.redirect('/');
+                res.redirect('/register');
             }
         });
     }
