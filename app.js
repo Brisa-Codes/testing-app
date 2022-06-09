@@ -40,10 +40,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', register);
 
 // Server connection
-//const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;
 
-app.listen(3000, () => {
-    logger.info('Server started on port 3000');
+app.listen(PORT, () => {
+    logger.info(`Server started on port ${PORT}`);
 });
 
 module.exports = app;
